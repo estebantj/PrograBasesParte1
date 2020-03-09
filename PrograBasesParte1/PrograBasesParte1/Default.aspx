@@ -3,7 +3,7 @@
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
 
     <div class="jumbotron">
-        <asp:Label ID="RespuestaID" Text="Respuesta:" runat="server">
+        <asp:Label ID="RespuestaID" Text="boton nuevo:" runat="server">
             <asp:Button runat="server" id="ButtonPrueba" Text="Probar Conexion" OnClick="ButtonPrueba_Click" />
         </asp:Label>
     </div>
