@@ -7,11 +7,11 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace PrograBasesParte1
+namespace PrograBasesParte1.Sites
 {
 
 
-    public partial class About
+    public partial class MainPage
     {
     }
 }

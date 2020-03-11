@@ -15,21 +15,39 @@ namespace PrograBasesParte1
     {
 
         /// <summary>
-        /// RespuestaID control.
+        /// usernameTextBox control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label RespuestaID;
+        protected global::System.Web.UI.WebControls.TextBox usernameTextBox;
 
         /// <summary>
-        /// ButtonPrueba control.
+        /// passwordsTextBox control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button ButtonPrueba;
+        protected global::System.Web.UI.WebControls.TextBox passwordsTextBox;
+
+        /// <summary>
+        /// loginButton control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button loginButton;
+
+        /// <summary>
+        /// RespuestaLabel control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label RespuestaLabel;
     }
 }
