@@ -21,6 +21,7 @@ namespace PrograBasesParte1
         protected void loginButton_Click(object sender, EventArgs e)
         {
             int response = -1;
+            String user = usernameTextBox.Text, password = passwordsTextBox.Text;
             using (SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["connDB"].ConnectionString))
             {
                 SqlCommand cmd = new SqlCommand();
@@ -38,6 +39,7 @@ namespace PrograBasesParte1
             }
             if (response == 459)
             {
+                HttpContext.Current.Session["userId"] = user;
                 Debug.WriteLine("Usuario Correcto");
                 Response.Redirect("~/Sites/mainPage.aspx");
             }
