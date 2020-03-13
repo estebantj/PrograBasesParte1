@@ -24,9 +24,22 @@ namespace PrograBasesParte1
             String user = usernameTextBox.Text, password = passwordsTextBox.Text;
             using (SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["connDB"].ConnectionString))
             {
-                SqlCommand cmd = new SqlCommand();
+                string procedure = "checkUserAndPasswordSP";
+
+                SqlCommand cmd = new SqlCommand(procedure,conn);
                 cmd.CommandType = CommandType.StoredProcedure;
-                cmd.CommandText = "pruebaSP";
+                //cmd.CommandText = "checkUserAndPasswordSP";
+
+                SqlParameter param;
+
+                param = cmd.Parameters.Add("@password", SqlDbType.NVarChar, 30);
+
+                param.Value = password;
+
+                param = cmd.Parameters.Add("@nombre", SqlDbType.NVarChar, 100);
+
+                param.Value = user;
+
                 cmd.Connection = conn;
                 conn.Open();
                 SqlParameter returnParameter = cmd.Parameters.Add("RetVal", SqlDbType.Int);
@@ -34,10 +47,10 @@ namespace PrograBasesParte1
                 cmd.ExecuteNonQuery();
                 int id = (int)returnParameter.Value;
                 response = id;
-                Debug.WriteLine(id);
+                Debug.WriteLine(returnParameter.Value);
                 
             }
-            if (response == 459)
+            if (response == 1)
             {
                 HttpContext.Current.Session["userId"] = user;
                 Debug.WriteLine("Usuario Correcto");
