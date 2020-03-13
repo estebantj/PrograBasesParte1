@@ -25,10 +25,8 @@ namespace PrograBasesParte1
             using (SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["connDB"].ConnectionString))
             {
                 string procedure = "checkUserAndPasswordSP";
-
                 SqlCommand cmd = new SqlCommand(procedure,conn);
                 cmd.CommandType = CommandType.StoredProcedure;
-                //cmd.CommandText = "checkUserAndPasswordSP";
 
                 SqlParameter param;
 
