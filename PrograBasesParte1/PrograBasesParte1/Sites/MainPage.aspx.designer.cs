@@ -7,47 +7,38 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace PrograBasesParte1
+namespace PrograBasesParte1.Sites
 {
 
 
-    public partial class _Default
+    public partial class MainPage
     {
 
         /// <summary>
-        /// usernameTextBox control.
+        /// GridPropiedades control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox usernameTextBox;
+        protected global::System.Web.UI.WebControls.GridView GridPropiedades;
 
         /// <summary>
-        /// passwordsTextBox control.
+        /// GridRecibosPorPagar control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox passwordsTextBox;
+        protected global::System.Web.UI.WebControls.GridView GridRecibosPorPagar;
 
         /// <summary>
-        /// loginButton control.
+        /// GridRecibosPagados control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button loginButton;
-
-        /// <summary>
-        /// RespuestaLabel control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label RespuestaLabel;
+        protected global::System.Web.UI.WebControls.GridView GridRecibosPagados;
     }
 }
