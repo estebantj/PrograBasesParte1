@@ -15,6 +15,15 @@ namespace PrograBasesParte1
     {
 
         /// <summary>
+        /// UsernameLabel control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label UsernameLabel;
+
+        /// <summary>
         /// usernameTextBox control.
         /// </summary>
         /// <remarks>
@@ -24,13 +33,22 @@ namespace PrograBasesParte1
         protected global::System.Web.UI.WebControls.TextBox usernameTextBox;
 
         /// <summary>
-        /// passwordsTextBox control.
+        /// PasswordLabel control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox passwordsTextBox;
+        protected global::System.Web.UI.WebControls.Label PasswordLabel;
+
+        /// <summary>
+        /// passwordTextBox control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox passwordTextBox;
 
         /// <summary>
         /// loginButton control.

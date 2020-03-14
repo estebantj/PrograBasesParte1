@@ -1,13 +1,9 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Web;
 using System.Web.UI;
-using System.Web.UI.WebControls;
 using System.Data.SqlClient;
 using System.Configuration;
 using System.Data;
-using System.Diagnostics;
 
 namespace PrograBasesParte1
 {
@@ -21,26 +17,29 @@ namespace PrograBasesParte1
         protected void loginButton_Click(object sender, EventArgs e)
         {
             int response = -1;
-            String user = usernameTextBox.Text, password = passwordsTextBox.Text;
+            String user = usernameTextBox.Text, password = passwordTextBox.Text;
             using (SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["connDB"].ConnectionString))
             {
                 SqlCommand cmd = new SqlCommand();
                 cmd.CommandType = CommandType.StoredProcedure;
-                cmd.CommandText = "pruebaSP";
-                cmd.Connection = conn;
-                conn.Open();
+                cmd.CommandText = "[checkUserAndPasswordSP]";
+
+                cmd.Parameters.Add("@password", SqlDbType.VarChar).Value = password;
+                cmd.Parameters.Add("@nombre", SqlDbType.VarChar).Value = user;
+                // Parametro para el valor de retorno
                 SqlParameter returnParameter = cmd.Parameters.Add("RetVal", SqlDbType.Int);
                 returnParameter.Direction = ParameterDirection.ReturnValue;
+                // Se abre la conexion y se ejecuta el store procedure
+                cmd.Connection = conn;
+                conn.Open();
                 cmd.ExecuteNonQuery();
+
                 int id = (int)returnParameter.Value;
                 response = id;
-                Debug.WriteLine(id);
-                
             }
-            if (response == 459)
+            if (response == 1)
             {
                 HttpContext.Current.Session["userId"] = user;
-                Debug.WriteLine("Usuario Correcto");
                 Response.Redirect("~/Sites/mainPage.aspx");
             }
             else

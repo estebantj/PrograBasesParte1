@@ -14,12 +14,11 @@ namespace PrograBasesParte1.Sites
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            cargarPropiedades();
         }
 
         protected void cargarPropiedades()
         {
-            String userId = HttpContext.Current.Session["branchId"].ToString();
+            String userId = HttpContext.Current.Session["userId"].ToString();
             using (SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["connDB"].ConnectionString))
             {
                 SqlCommand cmd = new SqlCommand();
