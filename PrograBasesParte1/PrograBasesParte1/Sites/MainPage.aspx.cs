@@ -14,6 +14,7 @@ namespace PrograBasesParte1.Sites
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            cargarPropiedades();
         }
 
         protected void cargarPropiedades()
@@ -21,12 +22,15 @@ namespace PrograBasesParte1.Sites
             String userId = HttpContext.Current.Session["userId"].ToString();
             using (SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["connDB"].ConnectionString))
             {
-                SqlCommand cmd = new SqlCommand();
+                string procedure = "showProperties";
+                SqlCommand cmd = new SqlCommand(procedure,conn);
                 cmd.CommandType = CommandType.StoredProcedure;
-                cmd.CommandText = "pruebaSP";
-                cmd.Parameters.Add("@id", SqlDbType.Int).Value = userId;
+                SqlParameter param;
+                param = cmd.Parameters.Add("@id", SqlDbType.NVarChar,5);
+                param.Value = userId;
                 cmd.Connection = conn;
                 conn.Open();
+
                 GridPropiedades.DataSource = cmd.ExecuteReader();
                 GridPropiedades.DataBind();
             }
@@ -43,10 +47,12 @@ namespace PrograBasesParte1.Sites
             {
                 SqlCommand cmd = new SqlCommand();
                 cmd.CommandType = CommandType.StoredProcedure;
-                cmd.CommandText = "pruebaSP";
+                cmd.CommandText = "showPendingReceipt";
                 cmd.Parameters.Add("@id", SqlDbType.Int).Value = idPropiedad;
                 cmd.Connection = conn;
                 conn.Open();
+                GridRecibosPorPagar.DataSource = cmd.ExecuteReader();
+                GridRecibosPorPagar.DataBind();
 
             }
         }
