@@ -15,6 +15,33 @@ namespace PrograBasesParte1.Sites
     {
 
         /// <summary>
+        /// verPropiedadesButton control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button verPropiedadesButton;
+
+        /// <summary>
+        /// editarPropietarios control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button editarPropietarios;
+
+        /// <summary>
+        /// editarPropiedades control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button editarPropiedades;
+
+        /// <summary>
         /// GridPropiedades control.
         /// </summary>
         /// <remarks>

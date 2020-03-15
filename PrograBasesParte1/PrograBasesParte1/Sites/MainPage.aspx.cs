@@ -14,25 +14,25 @@ namespace PrograBasesParte1.Sites
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            cargarPropiedades();
+            
         }
-
-        protected void cargarPropiedades()
+        protected void verPropiedadesButton_Click(object sender, EventArgs e)
         {
             String userId = HttpContext.Current.Session["userId"].ToString();
             using (SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["connDB"].ConnectionString))
             {
                 string procedure = "showProperties";
-                SqlCommand cmd = new SqlCommand(procedure,conn);
+                SqlCommand cmd = new SqlCommand(procedure, conn);
                 cmd.CommandType = CommandType.StoredProcedure;
                 SqlParameter param;
-                param = cmd.Parameters.Add("@id", SqlDbType.NVarChar,5);
+                param = cmd.Parameters.Add("@id", SqlDbType.NVarChar, 5);
                 param.Value = userId;
                 cmd.Connection = conn;
                 conn.Open();
 
                 GridPropiedades.DataSource = cmd.ExecuteReader();
                 GridPropiedades.DataBind();
+                GridPropiedades.Visible = true;
             }
         }
 
@@ -53,8 +53,17 @@ namespace PrograBasesParte1.Sites
                 conn.Open();
                 GridRecibosPorPagar.DataSource = cmd.ExecuteReader();
                 GridRecibosPorPagar.DataBind();
-
             }
+        }
+
+        protected void editarPropietarios_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        protected void editarPropiedades_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

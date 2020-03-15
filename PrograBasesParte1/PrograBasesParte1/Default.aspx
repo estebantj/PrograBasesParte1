@@ -20,7 +20,7 @@
     </div>
 
     <!-- Referencias -->
-    <link rel="stylesheet" href="css/login.css" type="text/css" media="screen" />
-    <script src="Scripts/LoginPage/login.js"></script>
+    <link rel="stylesheet" href="/css/login.css" type="text/css" media="screen" />
+    <script src="/Scripts/LoginPage/login.js"></script>
 </asp:Content>
     
