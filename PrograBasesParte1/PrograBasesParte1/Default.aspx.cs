@@ -37,10 +37,14 @@ namespace PrograBasesParte1
                 int id = (int)returnParameter.Value;
                 response = id;
             }
-            if (response == 1)
+            if (response == 1) // Usuario administrador
             {
                 HttpContext.Current.Session["userId"] = user;
-                Response.Redirect("~/Sites/mainPage.aspx");
+                Response.Redirect("~/Sites/AdminPage.aspx");
+            }
+            else if (response == 0) // Usuario corrient
+            {
+                HttpContext.Current.Session["userId"] = user;
             }
             else
             {

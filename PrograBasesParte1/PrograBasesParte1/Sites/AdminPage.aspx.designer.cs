@@ -24,22 +24,22 @@ namespace PrograBasesParte1.Sites
         protected global::System.Web.UI.WebControls.Button verPropiedadesButton;
 
         /// <summary>
-        /// editarPropietarios control.
+        /// verPropietarios control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button editarPropietarios;
+        protected global::System.Web.UI.WebControls.Button verPropietarios;
 
         /// <summary>
-        /// editarPropiedades control.
+        /// verUsuarios control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button editarPropiedades;
+        protected global::System.Web.UI.WebControls.Button verUsuarios;
 
         /// <summary>
         /// GridPropiedades control.
@@ -67,5 +67,23 @@ namespace PrograBasesParte1.Sites
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.GridView GridRecibosPagados;
+
+        /// <summary>
+        /// GridPropietarios control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.GridView GridPropietarios;
+
+        /// <summary>
+        /// GridUsuarios control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.GridView GridUsuarios;
     }
 }
