@@ -69,23 +69,23 @@
   <ItemGroup>
     <Content Include="css\AdminPage.css" />
     <Content Include="css\login.css" />
-    <Content Include="Pages\AdminPage.aspx" />
-    <Content Include="Pages\loginPage.aspx" />
+    <Content Include="WebPages\AdminPage.aspx" />
+    <Content Include="WebPages\loginPage.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Pages\AdminPage.aspx.cs">
+    <Compile Include="WebPages\AdminPage.aspx.cs">
       <DependentUpon>AdminPage.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Pages\AdminPage.aspx.designer.cs">
+    <Compile Include="WebPages\AdminPage.aspx.designer.cs">
       <DependentUpon>AdminPage.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Pages\loginPage.aspx.cs">
+    <Compile Include="WebPages\loginPage.aspx.cs">
       <DependentUpon>loginPage.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Pages\loginPage.aspx.designer.cs">
+    <Compile Include="WebPages\loginPage.aspx.designer.cs">
       <DependentUpon>loginPage.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />

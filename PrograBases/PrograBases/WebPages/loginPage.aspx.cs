@@ -39,7 +39,7 @@ namespace PrograBases.Pages
             if (response == 1) // Usuario administrador
             {
                 HttpContext.Current.Session["userId"] = user;
-                Response.Redirect("~/Pages/AdminPage.aspx");
+                Response.Redirect("~/WebPages/AdminPage.aspx");
             }
             else if (response == 0) // Usuario corrient
             {
