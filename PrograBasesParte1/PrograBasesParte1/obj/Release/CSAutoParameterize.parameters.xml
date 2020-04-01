@@ -1,6 +1,0 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
-<parameters>
-  <parameter name="connDB-Web.config Connection String" description="connDB Connection String used in web.config by the application to access the database." defaultValue="Data Source = progra-bases.database.windows.net; Initial Catalog = PrograBases; Persist Security Info=True; User ID = Administrador; Password = ?sC996qp" tags="SqlConnectionString">
-    <parameterEntry kind="XmlFile" scope="C:\\Users\\esteb\\OneDrive\\Documents\\GitKraken\\PrograBasesParte1\\PrograBasesParte1\\PrograBasesParte1\\obj\\Release\\Package\\PackageTmp\\Web\.config$" match="/configuration/connectionStrings/add[@name='connDB']/@connectionString" />
-  </parameter>
-</parameters>
