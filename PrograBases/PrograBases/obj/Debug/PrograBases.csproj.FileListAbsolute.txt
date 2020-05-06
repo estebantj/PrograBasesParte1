@@ -111,6 +111,7 @@ C:\Users\esteb\OneDrive\Documents\GitKraken\PrograBasesParte1\PrograBases\Progra
 C:\Users\esteb\OneDrive\Documents\GitKraken\PrograBasesParte1\PrograBases\PrograBases\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
 C:\Users\esteb\OneDrive\Documents\GitKraken\PrograBasesParte1\PrograBases\PrograBases\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
 C:\Users\esteb\OneDrive\Documents\GitKraken\PrograBasesParte1\PrograBases\PrograBases\obj\Debug\PrograBases.csprojAssemblyReference.cache
+C:\Users\esteb\OneDrive\Documents\GitKraken\PrograBasesParte1\PrograBases\PrograBases\obj\Debug\PrograBases.csproj.CoreCompileInputs.cache
 C:\Users\esteb\OneDrive\Documents\GitKraken\PrograBasesParte1\PrograBases\PrograBases\obj\Debug\PrograBases.csproj.CopyComplete
 C:\Users\esteb\OneDrive\Documents\GitKraken\PrograBasesParte1\PrograBases\PrograBases\obj\Debug\PrograBases.dll
 C:\Users\esteb\OneDrive\Documents\GitKraken\PrograBasesParte1\PrograBases\PrograBases\obj\Debug\PrograBases.pdb

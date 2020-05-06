@@ -8,6 +8,7 @@ namespace PrograBases.Pages
 {
     public partial class loginPage : System.Web.UI.Page
     {
+        static string checkUserSpName = "checkUserAndPasswordSP";
         protected void Page_Load(object sender, EventArgs e)
         {
 
@@ -21,7 +22,7 @@ namespace PrograBases.Pages
             {
                 SqlCommand cmd = new SqlCommand();
                 cmd.CommandType = CommandType.StoredProcedure;
-                cmd.CommandText = "[checkUserAndPasswordSP]";
+                cmd.CommandText = checkUserSpName;
 
                 cmd.Parameters.Add("@password", SqlDbType.VarChar).Value = password;
                 cmd.Parameters.Add("@nombre", SqlDbType.VarChar).Value = user;
@@ -39,7 +40,7 @@ namespace PrograBases.Pages
             if (response == 1) // Usuario administrador
             {
                 HttpContext.Current.Session["userId"] = user;
-                Response.Redirect("~/WebPages/AdminPage.aspx");
+                Response.Redirect("~/WebPages/About.aspx");
             }
             else if (response == 0) // Usuario corrient
             {
@@ -47,8 +48,10 @@ namespace PrograBases.Pages
             }
             else
             {
+                HttpContext.Current.Session["userId"] = user;
                 RespuestaLabel.Text = "Usuario o contraseña incorrecta";
                 RespuestaLabel.Visible = true;
+                Response.Redirect("~/WebPages/About.aspx");
             }
         }
     }

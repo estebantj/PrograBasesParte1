@@ -67,19 +67,30 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="css\AdminPage.css" />
+    <Content Include="css\About.css" />
     <Content Include="css\login.css" />
-    <Content Include="WebPages\AdminPage.aspx" />
-    <Content Include="WebPages\loginPage.aspx" />
+    <Content Include="css\SiteMaster.css" />
     <Content Include="Web.config" />
+    <Content Include="WebPages\About.aspx" />
+    <Content Include="WebPages\loginPage.aspx" />
+    <Content Include="WebPages\tablaPropiedades.aspx" />
+    <Content Include="WebPages\tablaPropietarios.aspx" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="WebPages\AdminPage.aspx.cs">
-      <DependentUpon>AdminPage.aspx</DependentUpon>
+    <Compile Include="Site.Master.cs">
+      <DependentUpon>Site.Master</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="WebPages\AdminPage.aspx.designer.cs">
-      <DependentUpon>AdminPage.aspx</DependentUpon>
+    <Compile Include="Site.Master.designer.cs">
+      <DependentUpon>Site.Master</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="WebPages\About.aspx.cs">
+      <DependentUpon>About.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="WebPages\About.aspx.designer.cs">
+      <DependentUpon>About.aspx</DependentUpon>
     </Compile>
     <Compile Include="WebPages\loginPage.aspx.cs">
       <DependentUpon>loginPage.aspx</DependentUpon>
@@ -88,10 +99,24 @@
     <Compile Include="WebPages\loginPage.aspx.designer.cs">
       <DependentUpon>loginPage.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="WebPages\tablaPropiedades.aspx.cs">
+      <DependentUpon>tablaPropiedades.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="WebPages\tablaPropiedades.aspx.designer.cs">
+      <DependentUpon>tablaPropiedades.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="WebPages\tablaPropietarios.aspx.cs">
+      <DependentUpon>tablaPropietarios.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="WebPages\tablaPropietarios.aspx.designer.cs">
+      <DependentUpon>tablaPropietarios.aspx</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
+    <Content Include="Site.Master" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

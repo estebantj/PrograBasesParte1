@@ -1,0 +1,31 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Site.Master.cs" Inherits="PrograBases.Site1" %>
+
+<!DOCTYPE html>
+
+<html>
+<head runat="server">
+    <title></title>
+
+    <link rel="stylesheet" href="/css/SiteMaster.css" type="text/css" media="screen" />
+
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body>
+    <form id="form1" runat="server">
+        <div id="mainDiv">
+            
+            <div id="buttonsDiv">
+                <ul class="hrefList">
+                    <li><a runat="server" class="adminButton" href="~/WebPages/About.aspx">Acerca de</a></li>
+                    <li><a runat="server" class="adminButton" href="~/WebPages/tablaPropiedades.aspx">Propiedades</a></li>
+                    <li><a runat="server" class="adminButton" href="~/WebPages/tablaPropietarios.aspx">Propietarios</a></li>
+                </ul>
+            </div>
+
+            <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+            </asp:ContentPlaceHolder>
+        </div>
+    </form>
+</body>
+</html>
