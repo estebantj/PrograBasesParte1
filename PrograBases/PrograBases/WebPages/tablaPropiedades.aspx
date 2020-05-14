@@ -15,7 +15,7 @@
                         <asp:TextBox ID="txtNewNumeroFinca" runat="server" ></asp:TextBox>
                     </FooterTemplate> 
                     <ItemTemplate> 
-                        <asp:TextBox ID="txtNumeroFinca" runat="server" Text='<%# Bind("NumeroFinca") %>'></asp:TextBox>
+                        <asp:TextBox ID="txtNumeroFinca" runat="server" Text='<%# Bind("numFinca") %>'></asp:TextBox>
                     </ItemTemplate>
                 </asp:TemplateField>
 
@@ -24,7 +24,7 @@
                         <asp:TextBox ID="txtNewValor" runat="server" ></asp:TextBox>
                     </FooterTemplate> 
                     <ItemTemplate> 
-                        <asp:TextBox ID="txtValor" runat="server" Text='<%# Bind("Valor") %>'></asp:TextBox>
+                        <asp:TextBox ID="txtValor" runat="server" Text='<%# Bind("valor") %>'></asp:TextBox>
                     </ItemTemplate>
                 </asp:TemplateField>
 
@@ -33,7 +33,7 @@
                         <asp:TextBox ID="txtNewDireccion" runat="server" ></asp:TextBox>
                     </FooterTemplate> 
                     <ItemTemplate> 
-                        <asp:TextBox ID="txtDireccion" runat="server" Text='<%# Bind("Direccion") %>'></asp:TextBox>
+                        <asp:TextBox ID="txtDireccion" runat="server" Text='<%# Bind("direccion") %>'></asp:TextBox>
                     </ItemTemplate>
                 </asp:TemplateField>
 

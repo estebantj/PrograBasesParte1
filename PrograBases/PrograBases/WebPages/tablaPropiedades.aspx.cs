@@ -15,21 +15,50 @@ namespace PrograBases.WebPages
     public partial class tablaPropiedades : System.Web.UI.Page
     {
         private string verPropiedadesSpName = "showProperties";
+        private string verPropiedadesDePropietario = "getPropertyOfOwner";
         protected void Page_Load(object sender, EventArgs e)
         {
-            HttpContext.Current.Session["userId"] = "esteban";
-            //fillGridPropiedades();
+            try
+            {
+                int idPropietario = (int)HttpContext.Current.Session["idPropietario"];
+                Debug.Write("\n id Propiedad: " + idPropietario);
+                fillGridPropiedades(idPropietario);
+                Session.Remove("idPropietario");
+            }
+            catch (NullReferenceException ex)
+            {
+                Debug.Write("No hay id");
+                Debug.Write(ex.Source);
+                fillGridPropiedades(-1);
+            }
         }
 
-        protected void fillGridPropiedades()
+        protected void fillGridPropiedades(int pIdPropietario)
         {
-            String userId = HttpContext.Current.Session["userId"].ToString();
             using (SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["connDB"].ConnectionString))
             {
-                string procedure = verPropiedadesSpName;
+                string procedure;
+                if (pIdPropietario == -1)
+                {
+                    procedure = verPropiedadesSpName;
+                }
+                else
+                {
+                    procedure = verPropiedadesDePropietario;
+                }
                 SqlCommand cmd = new SqlCommand(procedure, conn);
                 cmd.CommandType = CommandType.StoredProcedure;
-                cmd.Parameters.Add("@id", SqlDbType.VarChar).Value = userId;
+                
+
+                if (pIdPropietario == -1)
+                {
+                    cmd.Parameters.Add("@id", SqlDbType.VarChar).Value = 1;
+                }
+                else
+                {
+                    cmd.Parameters.Add("@id", SqlDbType.Int).Value = pIdPropietario;
+                }
+
                 cmd.Connection = conn;
                 conn.Open();
 
@@ -37,25 +66,6 @@ namespace PrograBases.WebPages
                 GridPropiedades.DataBind();
                 GridPropiedades.Visible = true;
             }
-        }
-        protected void verPropiedadesButton_Click(object sender, EventArgs e)
-        {
-            /*
-            string currentDiv = Session["currentDiv"] as string;
-            if (currentDiv == null)
-            {
-                Session["currentDiv"] = "divPropiedades";
-            }
-            else
-            {
-                HtmlControl div = (System.Web.UI.HtmlControls.HtmlControl)divTablasUsuarioAdmin.FindControl(currentDiv);
-                div.Visible = false;
-                Session["currentDiv"] = "divPropiedades";
-                divPropiedades.Visible = true;
-            }
-            */
-            //hideCurrentDiv("divPropiedades");
-            //fillGridPropiedades();
         }
 
         protected void GridPropiedades_RowUpdating(object sender, GridViewUpdateEventArgs e)
@@ -78,7 +88,7 @@ namespace PrograBases.WebPages
 
             //TODO Falta llamar SP
 
-            fillGridPropiedades();
+            fillGridPropiedades(-1);
         }
 
         protected void GridPropiedades_RowCommand(object sender, GridViewCommandEventArgs e)
@@ -93,7 +103,7 @@ namespace PrograBases.WebPages
                 tb = (TextBox)row.FindControl("txtNewDireccion");
                 String direccion = tb.Text;
                 Debug.Write(numfinca + " " + valor + " " + direccion + "\n");
-                fillGridPropiedades();
+                fillGridPropiedades(-1);
             }
         }
 
@@ -104,9 +114,7 @@ namespace PrograBases.WebPages
             // Se obtiene el id
             int idPropiedad = int.Parse(row.Cells[0].Text);
             HttpContext.Current.Session["idPropiedad"] = idPropiedad;
-            //hideCurrentDiv("divPropietarios");
-            //fillGridPropietarios(idPropiedad);
-            Response.Redirect("~/WebPages/tablaPropiedades.aspx");
+            Response.Redirect("~/WebPages/tablaPropietarios.aspx");
         }
     }
 }

@@ -40,7 +40,7 @@ namespace PrograBases.Pages
             if (response == 1) // Usuario administrador
             {
                 HttpContext.Current.Session["userId"] = user;
-                Response.Redirect("~/WebPages/About.aspx");
+                Response.Redirect("~/WebPages/StartPage.aspx");
             }
             else if (response == 0) // Usuario corrient
             {
@@ -51,7 +51,7 @@ namespace PrograBases.Pages
                 HttpContext.Current.Session["userId"] = user;
                 RespuestaLabel.Text = "Usuario o contraseña incorrecta";
                 RespuestaLabel.Visible = true;
-                Response.Redirect("~/WebPages/About.aspx");
+                Response.Redirect("~/WebPages/StartPage.aspx");
             }
         }
     }

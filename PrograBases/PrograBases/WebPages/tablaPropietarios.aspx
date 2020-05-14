@@ -13,7 +13,7 @@
                         <asp:TextBox ID="textBoxNuevoNombrePropietario" runat="server" ></asp:TextBox>
                     </FooterTemplate> 
                     <ItemTemplate>
-                        <asp:TextBox runat="server" id="textBoxNombrePropietario" Text='<%# Bind("Nombre") %>'></asp:TextBox>
+                        <asp:TextBox runat="server" id="textBoxNombrePropietario" Text='<%# Bind("nombre") %>'></asp:TextBox>
                     </ItemTemplate>
                 </asp:TemplateField>
 
@@ -22,16 +22,7 @@
                         <asp:TextBox ID="textBoxNuevoIdTipoId" runat="server"></asp:TextBox>
                     </FooterTemplate>
                     <ItemTemplate>
-                        <asp:TextBox ID="textBoxIdTipoId" runat="server" Text='<%# Bind("idTipoDeId") %>'></asp:TextBox>
-                    </ItemTemplate>
-                </asp:TemplateField>
-
-                <asp:TemplateField HeaderText="Activo" >
-                    <FooterTemplate>
-                        <asp:TextBox ID="textBoxNuevoActivo" runat="server"></asp:TextBox>
-                    </FooterTemplate>
-                    <ItemTemplate>
-                        <asp:TextBox ID="textBoxActivo" runat="server" Text='<%# Bind("Activo") %>'></asp:TextBox>
+                        <asp:TextBox ID="textBoxIdTipoId" runat="server" Text='<%# Bind("valorDocId") %>'></asp:TextBox>
                     </ItemTemplate>
                 </asp:TemplateField>
 
@@ -40,7 +31,16 @@
                         <asp:TextBox ID="textBoxNuevoIdentificacion" runat="server"></asp:TextBox>
                     </FooterTemplate>
                     <ItemTemplate>
-                        <asp:TextBox ID="textBoxIdentificacion" runat="server" Text='<%# Bind("Identificacion") %>'></asp:TextBox>
+                        <asp:TextBox ID="textBoxIdentificacion" runat="server" Text='<%# Bind("identificacion") %>'></asp:TextBox>
+                    </ItemTemplate>
+                </asp:TemplateField>
+
+                <asp:TemplateField HeaderText="Activo" >
+                    <FooterTemplate>
+                        <asp:TextBox ID="textBoxNuevoActivo" runat="server"></asp:TextBox>
+                    </FooterTemplate>
+                    <ItemTemplate>
+                        <asp:TextBox ID="textBoxActivo" runat="server" Text='<%# Bind("activo") %>'></asp:TextBox>
                     </ItemTemplate>
                 </asp:TemplateField>
 
@@ -52,6 +52,12 @@
                         <asp:LinkButton ID="lbkUpdateGridPropietarios" runat="server" CausesValidation="True" CommandName="Update" Text="Actualizar"></asp:LinkButton>
                     </ItemTemplate> 
                 </asp:TemplateField> 
+
+                <asp:TemplateField HeaderText="Propiedad" ShowHeader="False">
+                    <ItemTemplate>
+                        <asp:LinkButton ID="lnkbVerPropiedades" runat="server" CausesValidation="True" OnClick="lnkbVerPropiedades_Click" Text="Ver propiedades"></asp:LinkButton>
+                    </ItemTemplate>
+                </asp:TemplateField>
 
                 <asp:CommandField HeaderText="Borrar" ShowDeleteButton="True" ShowHeader="True" />
             </Columns>

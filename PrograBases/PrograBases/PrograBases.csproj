@@ -70,9 +70,11 @@
     <Content Include="css\About.css" />
     <Content Include="css\login.css" />
     <Content Include="css\SiteMaster.css" />
+    <Content Include="css\StartPage.css" />
     <Content Include="Web.config" />
     <Content Include="WebPages\About.aspx" />
     <Content Include="WebPages\loginPage.aspx" />
+    <Content Include="WebPages\StartPage.aspx" />
     <Content Include="WebPages\tablaPropiedades.aspx" />
     <Content Include="WebPages\tablaPropietarios.aspx" />
   </ItemGroup>
@@ -98,6 +100,13 @@
     </Compile>
     <Compile Include="WebPages\loginPage.aspx.designer.cs">
       <DependentUpon>loginPage.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="WebPages\StartPage.aspx.cs">
+      <DependentUpon>StartPage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="WebPages\StartPage.aspx.designer.cs">
+      <DependentUpon>StartPage.aspx</DependentUpon>
     </Compile>
     <Compile Include="WebPages\tablaPropiedades.aspx.cs">
       <DependentUpon>tablaPropiedades.aspx</DependentUpon>
