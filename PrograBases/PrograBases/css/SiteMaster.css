@@ -1,6 +1,11 @@
-﻿html, body, #form1 {
+﻿:root {
+    --div-width: 10%;
+}
+
+html, body, #form1 {
     height: 100%;
     margin: 0;
+    font-size: 15px;
 }
 
 body {
@@ -22,9 +27,10 @@ body {
     display: flex;
     flex-flow: column wrap;
     height: 100%;
-    width: 10%;
+    width: var(--div-width);
     background-color: #474e5d;
     border-style: none solid none none;
+    position: fixed;
 }
 
 .adminButton {
@@ -50,3 +56,8 @@ ul.hrefList {
         padding-top: 10px;
         padding-bottom: 10px;
     }
+
+#divContentPlaceHolder {
+    margin-left: var(--div-size);
+    height: 100%;
+}

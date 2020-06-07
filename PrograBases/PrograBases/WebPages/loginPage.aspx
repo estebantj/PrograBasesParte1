@@ -24,6 +24,10 @@
                 <asp:Label runat="server" CssClass="RespuestaLabel" ID="RespuestaLabel" Visible="false" />
             </div>
         </div>
+
+        <div runat="server" id="loading" style="text-align: center" hidden>
+            <asp:Image ID="loadingImage" runat="server"  ImageUrl="~/91.gif" />
+        </div>
     </form>
 </body>
 </html>

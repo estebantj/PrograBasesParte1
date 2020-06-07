@@ -15,13 +15,22 @@ namespace PrograBases.WebPages
     {
 
         /// <summary>
-        /// idPropiedadDePropietario control.
+        /// txtPropiedadDePropietario control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox idPropiedadDePropietario;
+        protected global::System.Web.UI.WebControls.TextBox txtPropiedadDePropietario;
+
+        /// <summary>
+        /// tipoBusquedaPropietario control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList tipoBusquedaPropietario;
 
         /// <summary>
         /// botonConsultaPropiedadDePropietario control.
@@ -31,5 +40,59 @@ namespace PrograBases.WebPages
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button botonConsultaPropiedadDePropietario;
+
+        /// <summary>
+        /// txtPropietarioDePropiedad control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtPropietarioDePropiedad;
+
+        /// <summary>
+        /// botonConsultaPropietarioDePropiedad control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button botonConsultaPropietarioDePropiedad;
+
+        /// <summary>
+        /// txtPropiedadDeUsuario control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtPropiedadDeUsuario;
+
+        /// <summary>
+        /// botonConsultaPropiedadDeUsuario control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button botonConsultaPropiedadDeUsuario;
+
+        /// <summary>
+        /// txtUsuarioDePropiedad control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtUsuarioDePropiedad;
+
+        /// <summary>
+        /// botonConsultaUsuarioDePropiedad control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button botonConsultaUsuarioDePropiedad;
     }
 }

@@ -3,35 +3,32 @@ using System.Collections.Generic;
 using System.Configuration;
 using System.Data;
 using System.Data.SqlClient;
-using System.Diagnostics;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
-using System.Web.UI.HtmlControls;
 using System.Web.UI.WebControls;
 
 namespace PrograBases.WebPages
 {
-    public partial class tablaPropietarios : System.Web.UI.Page
+    public partial class tablaUsuarios : System.Web.UI.Page
     {
-        private string verPropietariosSpName = "SP_PropietarioSelect";
-        private string verPropietariosDePropiedadSpName = "SP_getOwnerOfProperty";
-        private string propietarioUpdate = "SP_PropietarioUpdate";
-        private string propietarioDelete = "SP_PropietarioDelete";
-        private string propietarioInsert = "SP_PropietarioInsert";
+        private string verUsuariosSpName = "SP_UsuarioSelect";
+        private string deleteUsuarioSpName = "SP_UsuarioDelete";
+        private string insertUsuarioSpName = "SP_UsuarioInsert";
+        private string verUsuariosDePropiedadSpName = "SP_getUsersOfProperty";
         protected void Page_Load(object sender, EventArgs e)
         {
-            if(!IsPostBack)
+            if (!IsPostBack)
             {
                 string all = Request.QueryString["all"];
                 if (all == "true")
                     HttpContext.Current.Session["opcionDeBusqueda"] = -1;
-                fillGridPropietarios();
+                fillGridUsuarios();
+                //call the function to load initial data into controls....
             }
         }
-        // Funciones de la tabla de propietarios ##########################
 
-        protected void fillGridPropietarios()
+        private void fillGridUsuarios() 
         {
             int opcionDeBusqueda;
             try
@@ -42,6 +39,7 @@ namespace PrograBases.WebPages
             {
                 opcionDeBusqueda = -1;
             }
+
             if (opcionDeBusqueda == 1)
             {
                 string numFinca = (string)HttpContext.Current.Session["numFinca"];
@@ -50,7 +48,7 @@ namespace PrograBases.WebPages
                 {
                     using (SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["connDB"].ConnectionString))
                     {
-                        string procedure = verPropietariosDePropiedadSpName;
+                        string procedure = verUsuariosDePropiedadSpName;
                         SqlCommand cmd = new SqlCommand(procedure, conn);
                         cmd.CommandType = CommandType.StoredProcedure;
 
@@ -59,9 +57,9 @@ namespace PrograBases.WebPages
                         cmd.Connection = conn;
                         conn.Open();
 
-                        GridPropietarios.DataSource = cmd.ExecuteReader();
-                        GridPropietarios.DataBind();
-                        GridPropietarios.Visible = true;
+                        GridUsuarios.DataSource = cmd.ExecuteReader();
+                        GridUsuarios.DataBind();
+                        GridUsuarios.Visible = true;
                     }
 
                 }
@@ -75,23 +73,24 @@ namespace PrograBases.WebPages
             else
             {
                 try
-                {
+                { 
                     using (SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["connDB"].ConnectionString))
                     {
-                        string procedure = verPropietariosSpName;
+                        string procedure = verUsuariosSpName;
+
                         SqlCommand cmd = new SqlCommand(procedure, conn);
                         cmd.CommandType = CommandType.StoredProcedure;
 
-                        cmd.Parameters.Add(new SqlParameter("@inIdentificacion", DBNull.Value));
+                        cmd.Parameters.Add(new SqlParameter("@inUsuario", DBNull.Value));
 
                         cmd.Connection = conn;
                         conn.Open();
 
-                        GridPropietarios.DataSource = cmd.ExecuteReader();
-                        GridPropietarios.DataBind();
-                        GridPropietarios.Visible = true;
+                        GridUsuarios.DataSource = cmd.ExecuteReader();
+                        GridUsuarios.DataBind();
+                        GridUsuarios.Visible = true;
                     }
-
+                    
                 }
                 catch (SqlException ex)
                 {
@@ -101,37 +100,35 @@ namespace PrograBases.WebPages
                 }
             }
         }
-        protected void GridPropietarios_RowDeleting(object sender, GridViewDeleteEventArgs e)
+
+        protected void GridUsuarios_RowDeleting(object sender, GridViewDeleteEventArgs e)
         {
-            GridViewRow row = GridPropietarios.Rows[e.RowIndex];
-            Label tb = (Label)row.FindControl("labelBoxIdentificacion");
-            string identificacion = tb.Text;
-            if (String.IsNullOrEmpty(identificacion))
-                identificacion = "-1";
+            GridViewRow row = GridUsuarios.Rows[e.RowIndex];
+            Label tb = (Label)row.FindControl("labelUsuario");
+            string usuario  = tb.Text;
+
             try
             {
                 using (SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["connDB"].ConnectionString))
                 {
-                    string procedure = propietarioDelete;
+                    string procedure = deleteUsuarioSpName;
                     SqlCommand cmd = new SqlCommand(procedure, conn);
                     cmd.CommandType = CommandType.StoredProcedure;
 
-                    cmd.Parameters.Add("@inIdentificacion", SqlDbType.VarChar).Value = identificacion;
+                    cmd.Parameters.Add("@inUsuario", SqlDbType.VarChar).Value = usuario;
 
                     cmd.Connection = conn;
                     conn.Open();
 
                     cmd.ExecuteNonQuery();
                 }
-                fillGridPropietarios();
+                fillGridUsuarios();
             }
             catch (SqlException ex)
             {
                 string alertMessage = Utilidad.mensajeAlerta(ex);
                 ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('" + alertMessage + "')", true);
-
             }
-
         }
 
         protected void lnkbVerPropiedades_Click(object sender, EventArgs e)
@@ -139,84 +136,76 @@ namespace PrograBases.WebPages
             LinkButton btn = (LinkButton)sender;
             GridViewRow row = (GridViewRow)btn.NamingContainer;
             // Se obtiene el id
-            Label tb = (Label)row.FindControl("labelBoxIdentificacion");
-            string idPropietario = tb.Text;
-            HttpContext.Current.Session["opcionDeBusqueda"] = 2;
-            HttpContext.Current.Session["idPropietario"] = idPropietario;
+            Label tb = (Label)row.FindControl("labelUsuario");
+            string nombreUsuario = tb.Text;
+            HttpContext.Current.Session["opcionDeBusqueda"] = 3;
+            HttpContext.Current.Session["nombreUsuario"] = nombreUsuario;
             Response.Redirect("~/WebPages/tablaPropiedades.aspx");
         }
 
-        protected void lnkAddGridPropietarios_Click(object sender, EventArgs e)
+        protected void lnkAddGridUsuarios_Click(object sender, EventArgs e)
         {
-            GridViewRow row = GridPropietarios.FooterRow;
-            TextBox tb = (TextBox)row.FindControl("textBoxNuevoNombrePropietario");
-            string nombrePropietario = Utilidad.verificarString_nombres(tb.Text);
-
-            tb = (TextBox)row.FindControl("textBoxNuevoIdTipoId");
-            int idTipoId;
-            bool success = int.TryParse(tb.Text, out idTipoId);
-            if (!success) idTipoId = -1;
             
-            tb = (TextBox)row.FindControl("textBoxNuevoIdentificacion");
-            string identificacion = (tb.Text).Trim();
-            if (String.IsNullOrEmpty(identificacion)) identificacion = "-1";
+            GridViewRow row = GridUsuarios.FooterRow;
+            TextBox tb = (TextBox)row.FindControl("txtNewUsuario");
+            string usuario = (tb.Text).Trim();
+            if (String.IsNullOrEmpty(usuario)) usuario = "-1";
+
+            tb = (TextBox)row.FindControl("txtNewPass");
+            string pass = (tb.Text).Trim();
+            if (String.IsNullOrEmpty(pass)) pass = "-1";
+
+            tb = (TextBox)row.FindControl("txtTipoDeUsuario");
+            string tipoUsuario = (tb.Text).Trim();
+            if (String.IsNullOrEmpty(tipoUsuario)) tipoUsuario = "-1";
 
             try
             {
                 using (SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["connDB"].ConnectionString))
                 {
-                    string procedure = propietarioInsert;
+                    string procedure = insertUsuarioSpName;
                     SqlCommand cmd = new SqlCommand(procedure, conn);
                     cmd.CommandType = CommandType.StoredProcedure;
 
-                    cmd.Parameters.Add("@inNombre", SqlDbType.VarChar).Value = nombrePropietario;
-                    cmd.Parameters.Add("@inValorDocId", SqlDbType.Int).Value = idTipoId;
-                    cmd.Parameters.Add("@inIdentificacion", SqlDbType.VarChar).Value = identificacion;
+                    cmd.Parameters.Add("@inNombre", SqlDbType.VarChar).Value = usuario;
+                    cmd.Parameters.Add("@inPassword", SqlDbType.VarChar).Value = pass;
+                    cmd.Parameters.Add("@inTipoDeUsuario", SqlDbType.VarChar).Value = tipoUsuario;
 
                     cmd.Connection = conn;
                     conn.Open();
 
                     cmd.ExecuteNonQuery();
                 }
-                fillGridPropietarios();
+                fillGridUsuarios();
             }
             catch (SqlException ex)
             {
                 string alertMessage = Utilidad.mensajeAlerta(ex);
                 ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('" + alertMessage + "')", true);
             }
+
         }
 
-        protected void botonUpdate_propietario_Click(object sender, EventArgs e)
+        protected void botonUpdate_usuario_Click(object sender, EventArgs e)
         {
-            string identificacionActual = (identificacion_txtForUpdate.Text).Trim();
-            string newIdentificacion = (newIdentificacion_txtForUpdate.Text).Trim();
-            if (String.IsNullOrEmpty(identificacionActual)) identificacionActual = "-1";
-            if (String.IsNullOrEmpty(newIdentificacion)) newIdentificacion = "-1";
-            int tipoDocId;
-            bool success = int.TryParse(newTipoDocIdP_txtForUpdate.Text, out tipoDocId);
-            if (!success) tipoDocId = -1;
-            string newName = Utilidad.verificarString_nombres(newName_txtForUpdate.Text);
-
+            string usuario = (usuario_txtForUpdate.Text).Trim();
+            string newUsuario = (newUsuario_txtForUpdate.Text).Trim();
+            string newPassword = (newPassword_TxtForUpdate.Text).Trim();
+            string tipoUsuario = newTipoUsuario_DllForUpdate.SelectedValue;
             try
             {
                 using (SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["connDB"].ConnectionString))
                 {
-                    string procedure = propietarioUpdate;
+                    string procedure = insertUsuarioSpName;
                     SqlCommand cmd = new SqlCommand(procedure, conn);
                     cmd.CommandType = CommandType.StoredProcedure;
-
-                    cmd.Parameters.Add("@inNombre", SqlDbType.VarChar).Value = newName;
-                    cmd.Parameters.Add("@inValorDocId", SqlDbType.Int).Value = tipoDocId;
-                    cmd.Parameters.Add("@inIdentificacion", SqlDbType.VarChar).Value = newIdentificacion;
-                    cmd.Parameters.Add("@inIdentificacionOriginal", SqlDbType.VarChar).Value = identificacionActual;
 
                     cmd.Connection = conn;
                     conn.Open();
 
                     cmd.ExecuteNonQuery();
                 }
-                fillGridPropietarios();
+                fillGridUsuarios();
             }
             catch (SqlException ex)
             {

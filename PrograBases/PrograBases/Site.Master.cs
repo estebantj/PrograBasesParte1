@@ -13,20 +13,5 @@ namespace PrograBases
         {
 
         }
-
-        protected void verPropiedadesButton_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        protected void verPropietarios_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        protected void verUsuarios_Click(object sender, EventArgs e)
-        {
-
-        }
     }
 }

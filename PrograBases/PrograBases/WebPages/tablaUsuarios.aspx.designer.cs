@@ -11,97 +11,97 @@ namespace PrograBases.WebPages
 {
 
 
-    public partial class tablaPropietarios
+    public partial class tablaUsuarios
     {
 
         /// <summary>
-        /// GridPropietarios control.
+        /// GridUsuarios control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView GridPropietarios;
+        protected global::System.Web.UI.WebControls.GridView GridUsuarios;
 
         /// <summary>
-        /// identificacion_labelForUpdate control.
+        /// usuario_labelForUpdate control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label identificacion_labelForUpdate;
+        protected global::System.Web.UI.WebControls.Label usuario_labelForUpdate;
 
         /// <summary>
-        /// identificacion_txtForUpdate control.
+        /// usuario_txtForUpdate control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox identificacion_txtForUpdate;
+        protected global::System.Web.UI.WebControls.TextBox usuario_txtForUpdate;
 
         /// <summary>
-        /// newIdentificacion_labelForUpdate control.
+        /// newUsuario_labelForUpdate control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label newIdentificacion_labelForUpdate;
+        protected global::System.Web.UI.WebControls.Label newUsuario_labelForUpdate;
 
         /// <summary>
-        /// newIdentificacion_txtForUpdate control.
+        /// newUsuario_txtForUpdate control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox newIdentificacion_txtForUpdate;
+        protected global::System.Web.UI.WebControls.TextBox newUsuario_txtForUpdate;
 
         /// <summary>
-        /// newTipoDocIdP_labelForUpdate control.
+        /// newPassword_labelForUpdate control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label newTipoDocIdP_labelForUpdate;
+        protected global::System.Web.UI.WebControls.Label newPassword_labelForUpdate;
 
         /// <summary>
-        /// newTipoDocIdP_txtForUpdate control.
+        /// newPassword_TxtForUpdate control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox newTipoDocIdP_txtForUpdate;
+        protected global::System.Web.UI.WebControls.TextBox newPassword_TxtForUpdate;
 
         /// <summary>
-        /// newName_labelForUpdate control.
+        /// newtipoUsuario_labelForUpdate control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label newName_labelForUpdate;
+        protected global::System.Web.UI.WebControls.Label newtipoUsuario_labelForUpdate;
 
         /// <summary>
-        /// newName_txtForUpdate control.
+        /// newTipoUsuario_DllForUpdate control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox newName_txtForUpdate;
+        protected global::System.Web.UI.WebControls.DropDownList newTipoUsuario_DllForUpdate;
 
         /// <summary>
-        /// botonUpdate_propietario control.
+        /// botonUpdate_usuario control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button botonUpdate_propietario;
+        protected global::System.Web.UI.WebControls.Button botonUpdate_usuario;
     }
 }

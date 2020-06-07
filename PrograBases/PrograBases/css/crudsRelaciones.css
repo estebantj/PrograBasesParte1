@@ -1,9 +1,5 @@
-﻿body, html {
-    margin: 0;
-    height: 100%;
-}
-
-#divConsultas {
+﻿
+#divRelaciones {
     display: flex;
     flex-direction: row;
     padding-top: 10%;
@@ -12,7 +8,7 @@
     margin-left: var(--div-width);
 }
 
-    #divConsultas > div {
+    #divRelaciones > div {
         display: flex;
         flex-direction: column;
         margin: 0 20px 0 20px;
@@ -21,22 +17,16 @@
         padding: 5px 5px 5px 5px;
     }
 
-.dropDownListStartPage {
-    margin: 5px 0 5px 0;
-    width: 100%;
-}
-
-.textBoxConsulta {
+.textBoxCruds {
     margin-top: 5px;
     width: 100%;
     box-sizing: border-box;
 }
 
-.botonConsulta {
+.botonCruds {
     margin-top: 5px;
     margin-bottom: 10px;
     width: 100%;
-
     color: #fff !important;
     text-decoration: none;
     background: #60a3bc;
@@ -47,21 +37,19 @@
     transition: all 0.4s ease 0s;
 }
 
-    .botonConsulta:hover {
+    .botonCruds:hover {
         text-shadow: 0px 0px 6px rgba(255, 255, 255, 1);
         -webkit-box-shadow: 0px 5px 40px -10px rgba(0,0,0,0.57);
         -moz-box-shadow: 0px 5px 40px -10px rgba(0,0,0,0.57);
         transition: all 0.4s ease 0s;
     }
 
-#ContentPlaceHolder1_botonConsultaPropietarioDePropiedad {
-    margin-top: 13%;
+.dropDownListCRUDS {
+    width: 100%;
+    margin-top: 5px;
 }
 
-#ContentPlaceHolder1_botonConsultaPropiedadDeUsuario {
-    margin-top: 13%;
-}
-
-#ContentPlaceHolder1_botonConsultaUsuarioDePropiedad {
-    margin-top: 13%;
+.relacion_label {
+    color: white;
+    margin: 5px 0 5px 0;
 }
